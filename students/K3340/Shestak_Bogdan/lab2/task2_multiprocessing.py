@@ -6,7 +6,7 @@ from datetime import date
  
 import psycopg2
  
-# ── Настройки БД ──────────────────────────────────────────────────────────────
+#Настройки БД
 DB_CONFIG = {
     "dbname": "finance_db",
     "user": "postgres",

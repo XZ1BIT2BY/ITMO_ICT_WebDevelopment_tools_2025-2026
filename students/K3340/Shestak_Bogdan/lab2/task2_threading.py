@@ -6,7 +6,7 @@ from datetime import date
  
 import psycopg2
  
-# ── Настройки БД ──────────────────────────────────────────────────────────────
+#Настройки БД
 DB_CONFIG = {
     "dbname": "finance_db",
     "user": "postgres",
@@ -15,8 +15,6 @@ DB_CONFIG = {
     "port": 5432,
 }
  
-# ── Список дат для парсинга (несколько дней = несколько запросов) ─────────────
-# ЦБ РФ: /scripts/XML_daily.asp?date_req=DD/MM/YYYY
 DATES = [
     "30/04/2026",
     "01/05/2026",

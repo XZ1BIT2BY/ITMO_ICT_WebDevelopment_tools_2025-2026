@@ -4,27 +4,28 @@ from fastapi import APIRouter, Depends, HTTPException, status
 from sqlmodel import Session, select
 
 from db import get_session
-from app.models import Tag, TransactionTag, User
+from app.models import Tag, TagCreate, TagRead, TransactionTag, User
 from app.auth.dependencies import get_current_user
 
 router = APIRouter(prefix="/tags", tags=["Tags"])
 
 
-@router.get("/", response_model=List[Tag])
+@router.get("/", response_model=List[TagRead])
 def list_tags(session: Session = Depends(get_session)) -> List[Tag]:
     return session.exec(select(Tag)).all()
 
 
-@router.post("/", response_model=Tag, status_code=status.HTTP_201_CREATED)
+@router.post("/", response_model=TagRead, status_code=status.HTTP_201_CREATED)
 def create_tag(
-    tag: Tag,
+    tag: TagCreate,
     session: Session = Depends(get_session),
     _: User = Depends(get_current_user),
 ) -> Tag:
-    session.add(tag)
+    tag_obj = Tag(name=tag.name)
+    session.add(tag_obj)
     session.commit()
-    session.refresh(tag)
-    return tag
+    session.refresh(tag_obj)
+    return tag_obj
 
 
 @router.delete("/{tag_id}", status_code=status.HTTP_204_NO_CONTENT)

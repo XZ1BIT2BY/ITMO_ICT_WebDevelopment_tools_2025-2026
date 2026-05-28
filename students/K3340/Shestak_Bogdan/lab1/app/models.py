@@ -55,3 +55,46 @@ class UserRead(SQLModel):
 class UserChangePassword(SQLModel):
     old_password: str
     new_password: str
+
+class AccountCreate(SQLModel):
+    name: str
+    balance: float
+
+class AccountRead(SQLModel):
+    id: int
+    name: str
+    balance: float
+    user_id: int
+
+class CategoryCreate(SQLModel):
+    name: str
+
+class CategoryRead(SQLModel):
+    id: int
+    name: str
+
+class TransactionCreate(SQLModel):
+    amount: float
+    account_id: int
+    category_id: int
+
+class TransactionRead(SQLModel):
+    id: int
+    amount: float
+    account_id: int
+    category_id: int
+    category_name: str = "none"
+    tag_name: str = "none"
+
+class TagCreate(SQLModel):
+    name: str
+
+class TagRead(SQLModel):
+    id: int
+    name: str
+
+class TransactionTagRead(SQLModel):
+    transaction_id: int
+    transaction_title: str
+    tag_id: int
+    tag_name: str

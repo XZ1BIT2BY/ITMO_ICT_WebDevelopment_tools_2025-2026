@@ -6,7 +6,7 @@ from datetime import date
 import aiohttp
 import asyncpg
  
-# ── Настройки БД ──────────────────────────────────────────────────────────────
+#Настройки БД
 DB_DSN = "postgresql://postgres:8118@localhost/finance_db"
  
 DATES = [
