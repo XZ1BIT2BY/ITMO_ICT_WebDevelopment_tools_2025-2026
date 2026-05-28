@@ -238,4 +238,4 @@ docker-compose up --build
 - Парсер: http://localhost:8001/docs
 
 ## Ссылки
-- [Код лабораторной](https://github.com/XZ1BIT2BY/ITMO_ICT_WebDevelopment_tools_2025-2026/tree/lab2/students/K3340/Shestak_Bogdan/lab3)
+- [Код лабораторной](https://github.com/XZ1BIT2BY/ITMO_ICT_WebDevelopment_tools_2025-2026/tree/lab3)
